@@ -1,7 +1,7 @@
 # Introducing Our Project👋
 
  
- Do you know **macbook selfie** getting viral in 20s?
+ Do you know **macbook selfie** going viral in 20s?
    
 ![selfies](image/selfie.png)
 
