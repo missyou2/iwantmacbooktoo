@@ -1,15 +1,16 @@
 # Introducing Our Project👋
 
  
- Do you know **macbook selfie** going viral in 20s?
+ Do you know **MacBook selfie** going viral in 20s?
    
 ![selfies](image/selfie.png)
-
-
+#
+#
  but, you can take this sticker selfie in [photobooth](https://support.apple.com/ko-kr/guide/photo-booth/welcome/mac) only...which mean you **must** need to Mac OS!  
    
 ![search](image/google.png)
-
+#
+#
 ### Then, Should I buy a MacBook or iMac just for taking a selfie?!
   
   
