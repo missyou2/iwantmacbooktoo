@@ -1,8 +1,8 @@
 import cv2
 #https://github.com/Itseez/opencv/blob/master/data/haarcascades/haarcascade_frontalface_default.xml
-face_cascade = cv2.CascadeClassifier('C:/Users/yckhb/School/OSS/haarcascade_frontalface_default.xml')
+face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 #https://github.com/Itseez/opencv/blob/master/data/haarcascades/haarcascade_eye.xml
-eye_cascade = cv2.CascadeClassifier('C:/Users/yckhb/School/OSS/haarcascade_eye.xml')
+eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
 
 #Functions that run a webcam, add and show emojis to the webcam screen
 #Input : image(png), cap(videocapture), flag(int), eyes(list),row(int), col(int) 
@@ -68,10 +68,10 @@ def photobooth(image,cap,flag,eyes,row,col):
 #Output : image(cv2 - png)
 def select_emoji():
     #Load the emoji to use
-    image1 = cv2.imread('C:/Users/yckhb/School/OSS/emoji/birds.png',cv2.IMREAD_COLOR)
-    image2 = cv2.imread('C:/Users/yckhb/School/OSS/emoji/happiness.png',cv2.IMREAD_COLOR)
-    image3 = cv2.imread('C:/Users/yckhb/School/OSS/emoji/heart.png',cv2.IMREAD_COLOR)
-    image4 = cv2.imread('C:/Users/yckhb/School/OSS/emoji/laugh.png',cv2.IMREAD_COLOR)
+    image1 = cv2.imread('emoji/birds.png',cv2.IMREAD_COLOR)
+    image2 = cv2.imread('emoji/happiness.png',cv2.IMREAD_COLOR)
+    image3 = cv2.imread('emoji/heart.png',cv2.IMREAD_COLOR)
+    image4 = cv2.imread('emoji/laugh.png',cv2.IMREAD_COLOR)
 
     #Save the all emoji to use
     image_list = [image1,image2,image3,image4] 
