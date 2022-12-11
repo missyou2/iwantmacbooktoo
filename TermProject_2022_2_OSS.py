@@ -24,7 +24,8 @@ for (x, y, w, h) in faces:
     y_offset = y
     l_img[y_offset:y_offset+s_img.shape[0], x_offset:x_offset+s_img.shape[1]] = s_img
 '''
-x_offset = y_offset = 30
+x_offset = 800 #Left to right
+y_offset = 100 #Up to down
 l_img[y_offset:y_offset+s_img.shape[0], x_offset:x_offset+s_img.shape[1]] = s_img #Add emoji picture to original picture
 cv2.imwrite("C:/Users/yckhb/Desktop/result-emoji.jpg", image) #Save the result
 cv2.imshow("Faces found", image) #Show
