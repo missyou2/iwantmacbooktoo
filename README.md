@@ -23,12 +23,12 @@ Download all files in GitHub.
 *(This program tested in miniconda3 base)*
 
 If you run code, you can choose emoji by entering number  
-![select](image/select.png)
+![select](image/select.PNG)
 
 Running code...  
   
 
-![result](image/result.png)  
+![result](image/test.PNG)  
 *(hope much better when you try)*
 
   
