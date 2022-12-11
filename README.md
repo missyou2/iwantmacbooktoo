@@ -18,12 +18,19 @@
 
 ### How to use this program?
 
-Download all files in GitHub.  
+>Download all files in GitHub.  
 ![github](image/github.png)
 *(This program tested in miniconda3 base)*
 
-If you run code, you can choose emoji by entering number  
+>If you run code, you can choose emoji by entering number  
 ![select](image/select.PNG)
+
+```
+1: birds
+2: happiness
+3: heart
+4: laugh
+```
 
 Running code...  
   
@@ -32,13 +39,13 @@ Running code...
 *(hope much better when you try)*
 
   
-Press **Q** to exit program!  
+* Press **Q** to exit program!  
   
 
 Enjoy our DIY photobooth 🖥  
 
   
 
-
+***
 Base source code by [tanmaya48](https://github.com/tanmaya48/OpenCV-puts-glasses-on-face)  
 Reference by [CodingEnterpreneurs](https://www.youtube.com/watch?v=HZ3mhgbjtRU)
