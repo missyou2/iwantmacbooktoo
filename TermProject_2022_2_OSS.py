@@ -1,32 +1,14 @@
 import cv2
-
 #https://github.com/Itseez/opencv/blob/master/data/haarcascades/haarcascade_frontalface_default.xml
 face_cascade = cv2.CascadeClassifier('C:/Users/yckhb/School/OSS/haarcascade_frontalface_default.xml')
-
 #https://github.com/Itseez/opencv/blob/master/data/haarcascades/haarcascade_eye.xml
 eye_cascade = cv2.CascadeClassifier('C:/Users/yckhb/School/OSS/haarcascade_eye.xml')
 
-#Load the emoji to use
-image1 = cv2.imread('C:/Users/yckhb/School/OSS/emoji/birds.png',cv2.IMREAD_COLOR)
-image2 = cv2.imread('C:/Users/yckhb/School/OSS/emoji/happiness.png',cv2.IMREAD_COLOR)
-image3 = cv2.imread('C:/Users/yckhb/School/OSS/emoji/heart.png',cv2.IMREAD_COLOR)
-image4 = cv2.imread('C:/Users/yckhb/School/OSS/emoji/laugh.png',cv2.IMREAD_COLOR)
-
-#Save the all emoji to use
-image_list = [image1,image2,image3,image4] 
-#Choose the emoji
-systemnum = int(input("Please select the Emoji  <1 - birds, 2 - happiness, 3 - heart, 4 - laugh> : ")) 
-image = image_list[(systemnum-1)]
-
-#Set information for the selected emoji
-row, col, channel = image.shape
-#Load the webcam on laptop(Desktop) 
-cap = cv2.VideoCapture(0)
-
-flag = 0
-eyes=[]
-#Enter the key 'q' to exit camera
-while cv2.waitKey(33) < 0:
+#Functions that run a webcam, add and show emojis to the webcam screen
+#Input : image(png), cap(videocapture), flag(int), eyes(list),row(int), col(int) 
+#Output : none
+#Reference : https://github.com/tanmaya48/OpenCV-puts-glasses-on-face
+def photobooth(image,cap,flag,eyes,row,col):
     ret, img = cap.read()
     #Setting Left and right inversion
     img =cv2.flip(img, 1)
@@ -63,7 +45,7 @@ while cv2.waitKey(33) < 0:
 
         #Reset the size of the emoji to fit the face size
         img3 = cv2.resize(image,size) 
-        rows, cols , channels = img3.shape
+        rows, cols, channels = img3.shape
         #Make emoji to gray
         img3gray = cv2.cvtColor(img3, cv2.COLOR_BGR2GRAY)
         #Handles thresholds for emoji black/white selection
@@ -81,8 +63,39 @@ while cv2.waitKey(33) < 0:
         img[fy+0-dy:fy+rows-dy, fx+0-dx:fx+cols-dx] = dst
     cv2.imshow('Camera',img) #Show the camera with emoji
 
-print("Successful connection with webcam and emoji attachment")
-#Release the webcam on laptop(Desktop)
-cap.release()
-#Exit all windows opened through cv2
-cv2.destroyAllWindows()
+#Function in which a user is selected for emoji 
+#Input : none
+#Output : image(cv2 - png)
+def select_emoji():
+    #Load the emoji to use
+    image1 = cv2.imread('C:/Users/yckhb/School/OSS/emoji/birds.png',cv2.IMREAD_COLOR)
+    image2 = cv2.imread('C:/Users/yckhb/School/OSS/emoji/happiness.png',cv2.IMREAD_COLOR)
+    image3 = cv2.imread('C:/Users/yckhb/School/OSS/emoji/heart.png',cv2.IMREAD_COLOR)
+    image4 = cv2.imread('C:/Users/yckhb/School/OSS/emoji/laugh.png',cv2.IMREAD_COLOR)
+
+    #Save the all emoji to use
+    image_list = [image1,image2,image3,image4] 
+    #Choose the emoji
+    systemnum = int(input("Please select the Emoji  <1 - birds, 2 - happiness, 3 - heart, 4 - laugh> : ")) 
+    image = image_list[(systemnum-1)]
+    return image
+
+#Main function that execute select_emoji and photobooth
+def mainfunc():
+    #Load the webcam on laptop(Desktop) 
+    cap = cv2.VideoCapture(0)
+    flag = 0
+    eyes=[]
+    image = select_emoji()
+    #Set information for the selected emoji
+    row, col, channel = image.shape
+    #Enter the key 'q' to exit camera
+    while cv2.waitKey(33) < 0:
+        photobooth(image,cap,flag,eyes,row,col)
+    print("Successful connection with webcam and emoji attachment")
+    #Release the webcam on laptop(Desktop)
+    cap.release()
+    #Exit all windows opened through cv2
+    cv2.destroyAllWindows()
+
+mainfunc()
